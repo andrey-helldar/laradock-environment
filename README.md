@@ -1,5 +1,7 @@
 # Laradock Environment Helper
 
+<img src="https://preview.dragon-code.pro/andrey-helldar/laradock-environment.svg?brand=docker" alt="Laradock Environment"/> 
+
 ## Directory structure
 
 - **your_folder**
