@@ -34,8 +34,9 @@ When downloading PHP, the script will also download and install the `php_redis`,
 
 1. Copy the file `services.txt.example` to `services.txt` and specify the services you need for your work.
 2. Specify the link to the PHP folder in the environment variables. For example, `d:\dev\modules\php` (this is a symlink in PHP).
-3. Create links to the files you need from the `bin` folder in a place convenient for you.
-4. Run the links you need and use 😊
+3. Specify the link to the 7zip folder in the environment variables. For example, `c:\Program Files\7-Zip`.
+4. Create links to the files you need from the `bin` folder in a place convenient for you.
+5. Run the links you need and use 😊
 
 ## Updating this project
 
