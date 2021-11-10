@@ -12,9 +12,9 @@
         - **bin** _// main executables_
         - **config** _// PHP configuration files_
         - **data**
-          - **data** _// Docker work data_
-          - **logs** _// Docker logs_
-          - **nginx** _// Nginx config files_
+            - **data** _// Docker work data_
+            - **logs** _// Docker logs_
+            - **nginx** _// Nginx config files_
         - **repository** _// Laradock main project_
         - **shell** _// Additional executables_
     - **modules**
@@ -22,10 +22,10 @@
 
 ## File designations
 
-    bin/phpXX-only.bat      - Sets the required PHP version by default.
-    bin/phpXX-rebuild.bat   - Sets the required PHP version by default.
+    bin/phpXX-only.cmd      - Sets the required PHP version by default.
+    bin/phpXX-rebuild.cmd   - Sets the required PHP version by default.
                               If not, download and install. Will also start compiling docker containers.
-    bin/phpXX-start.bat     - Sets the required PHP version by default.
+    bin/phpXX-start.cmd     - Sets the required PHP version by default.
                               If not, download and install. Will also starts docker containers.
 
 When downloading PHP, the script will also download and install the `php_redis`, `php_yaml` and `php_xdebug` extensions.
@@ -34,9 +34,8 @@ When downloading PHP, the script will also download and install the `php_redis`,
 
 1. Copy the file `services.txt.example` to `services.txt` and specify the services you need for your work.
 2. Specify the link to the PHP folder in the environment variables. For example, `d:\dev\modules\php` (this is a symlink in PHP).
-3. Specify the link to the 7zip folder in the environment variables. For example, `c:\Program Files\7-Zip`.
-4. Create links to the files you need from the `bin` folder in a place convenient for you.
-5. Run the links you need and use 😊
+3. Create links to the files you need from the `bin` folder in a place convenient for you.
+4. Run the links you need and use 😊
 
 ## Updating this project
 
