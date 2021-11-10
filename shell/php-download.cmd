@@ -10,18 +10,18 @@ set xdebugVersion=3.1.1
 set redisVersion=5.3.4
 set yamlVersion=2.2.2
 
-set tmp=..\data\tmp
-set targetPath=..\..\modules\php%cleanVersion%
+set tmp=%mainPath%\data\tmp
+set targetPath=%modulesPath%\php%cleanVersion%
 
 if exist %tmp% ( rmdir /Q/S %tmp% )
 
 if not exist %tmp% ( mkdir %tmp% )
 
-call download/php.bat
-call download/xdebug.bat
-call download/redis.bat
-call download/yaml.bat
+call download/php.cmd
+call download/xdebug.cmd
+call download/redis.cmd
+call download/yaml.cmd
 
-call php-config.bat %cleanVersion%
+call php-config.cmd %cleanVersion%
 
 if exist %tmp% ( rmdir /Q/S %tmp% )
