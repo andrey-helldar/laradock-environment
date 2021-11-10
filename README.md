@@ -30,9 +30,12 @@
 
 When downloading PHP, the script will also download and install the `php_redis`, `php_yaml` and `php_xdebug` extensions.
 
-## Services to start
+## Using
 
-Copy the file `services.txt.example` to `services.txt` and specify the services you need for your work.
+1. Copy the file `services.txt.example` to `services.txt` and specify the services you need for your work.
+2. Specify the link to the PHP folder in the environment variables. For example, `d:\dev\modules\php` (this is a symlink in PHP).
+3. Create links to the files you need from the `bin` folder in a place convenient for you.
+4. Run the links you need and use 😊
 
 ## Updating this project
 
