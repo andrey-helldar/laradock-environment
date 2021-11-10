@@ -1329,6 +1329,7 @@ RUN set -eux; \
   # MySQL Client:
   ###########################################################################
   if [ ${INSTALL_MYSQL_CLIENT} = true ]; then \
+    apt update; \
     apt-get -yqq install mysql-client; \
   fi; \
   ###########################################################################

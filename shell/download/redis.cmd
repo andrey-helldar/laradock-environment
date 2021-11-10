@@ -4,4 +4,4 @@ powershell -Command "Invoke-WebRequest https://windows.php.net/downloads/pecl/re
 
 call %mainPath%\7zip\7z e "%redisOutputFile%" -o"%tmp%\redis" -y
 
-move /y %tmp%\redis\php_redis.dll %targetPath%\ext\php_redis.dll
+move /y %tmp%\redis\php_redis.dll %phpPath%\ext\php_redis.dll

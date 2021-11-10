@@ -4,4 +4,4 @@ powershell -Command "Invoke-WebRequest https://windows.php.net/downloads/pecl/re
 
 call %mainPath%\7zip\7z e "%yamlOutputFile%" -o"%tmp%\yaml" -y
 
-move /y %tmp%\yaml\php_yaml.dll %targetPath%\ext\php_yaml.dll
+move /y %tmp%\yaml\php_yaml.dll %phpPath%\ext\php_yaml.dll

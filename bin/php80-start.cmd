@@ -4,4 +4,4 @@ cd ..\shell
 
 call variables.cmd
 
-call php-main.cmd "8.0" "vs16" "start"
+call main.cmd "8.0" "vs16" "start"
