@@ -23,10 +23,14 @@
 ## File designations
 
     bin/phpXX-only.cmd      - Sets the required PHP version by default.
-    bin/phpXX-rebuild.cmd   - Sets the required PHP version by default.
-                              If not, download and install. Will also start compiling docker containers.
+                              If not, download and install.
+
     bin/phpXX-start.cmd     - Sets the required PHP version by default.
                               If not, download and install. Will also starts docker containers.
+
+    bin/phpXX-rebuild.cmd   - Sets the required PHP version by default.
+                              A fresh version of PHP will be forcibly downloaded and installed.
+                              Will also start compiling docker containers.
 
 When downloading PHP, the script will also download and install the `php_redis`, `php_yaml` and `php_xdebug` extensions.
 

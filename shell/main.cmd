@@ -18,9 +18,5 @@ if /I %action%=="build" (
     call php-download.cmd %version% %vc%
 )
 
-if not exist %phpPath% (
-    call php-download.cmd %version% %vc%
-)
-
 call php-only.cmd %version%
 call laradock-%action%.cmd
