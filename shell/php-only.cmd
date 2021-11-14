@@ -7,6 +7,8 @@ set currentPath=%~dp0
 
 set modulesPath=%currentPath%..\..\modules
 
+set phpPath=%modulesPath%\php%cleanVersion%
+
 rd %modulesPath%\php
 
 if not exist %phpPath% (

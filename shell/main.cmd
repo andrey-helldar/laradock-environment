@@ -4,8 +4,6 @@ set action=%3
 
 set cleanVersion=%version:.=%
 
-set phpPath=%modulesPath%\php%cleanVersion%
-
 if exist %repositoryPath%\.env (
 	del %repositoryPath%\.env
 )
@@ -18,5 +16,5 @@ if /I %action%=="build" (
     call php-download.cmd %version% %vc%
 )
 
-call php-only.cmd %version%
+call php-only.cmd %version% %vc%
 call laradock-%action%.cmd
