@@ -1,4 +1,5 @@
 set version=%1
+set vc=%2
 
 set cleanVersion=%version:.=%
 
