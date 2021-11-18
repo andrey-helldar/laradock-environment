@@ -1,6 +1,6 @@
 @echo off
 
-cd ..\shell
+cd ..\..\shell
 
 call variables.cmd
 
