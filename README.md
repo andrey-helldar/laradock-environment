@@ -10,6 +10,10 @@
         - bar.local
     - **laradock** _// this reposotory_
         - **bin** _// main executables_
+            - **<dir_by_php_version>**
+                - **only.cmd**
+                - **build.cmd**
+                - **start.cmd**
         - **config** _// PHP configuration files_
         - **data**
             - **data** _// Docker work data_
