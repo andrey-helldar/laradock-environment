@@ -15,4 +15,6 @@ if not exist %phpPath% (
     call php-download.cmd %version% %vc%
 )
 
+call cacert.cmd
+
 mklink /J %modulesPath%\php %modulesPath%\php%cleanVersion%
