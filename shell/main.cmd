@@ -4,6 +4,8 @@ set action=%3
 
 set cleanVersion=%version:.=%
 
+set phpPath=%modulesPath%\php%cleanVersion%
+
 if exist %repositoryPath%\.env (
 	del %repositoryPath%\.env
 )
