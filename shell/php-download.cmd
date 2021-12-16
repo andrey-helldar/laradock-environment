@@ -4,7 +4,7 @@ set vc=%2
 set version=%version:"=%
 set vc=%vc:"=%
 
-set xdebugVersion=3.1.1
+set xdebugVersion=3.1.2
 set redisVersion=5.3.4
 set yamlVersion=2.2.2
 
