@@ -115,6 +115,7 @@ services:
           - INSTALL_WORKSPACE_SSH=${WORKSPACE_INSTALL_WORKSPACE_SSH}
           - INSTALL_LARAVEL_ENVOY=${WORKSPACE_INSTALL_LARAVEL_ENVOY}
           - INSTALL_LARAVEL_INSTALLER=${WORKSPACE_INSTALL_LARAVEL_INSTALLER}
+          - INSTALL_XLSWRITER=${WORKSPACE_INSTALL_XLSWRITER}
           - INSTALL_DEPLOYER=${WORKSPACE_INSTALL_DEPLOYER}
           - INSTALL_PRESTISSIMO=${WORKSPACE_INSTALL_PRESTISSIMO}
           - INSTALL_LINUXBREW=${WORKSPACE_INSTALL_LINUXBREW}
@@ -180,10 +181,6 @@ services:
         - ./php-worker/supervisord.d:/etc/supervisord.d
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
-        - "crm-backend.local:${HOST_IP}"
-        - "crm-notify.local:${HOST_IP}"
-        - "crm.local:${HOST_IP}"
-        - "widget.local:${HOST_IP}"
       ports:
         - "${WORKSPACE_SSH_PORT}:22"
         - "${WORKSPACE_BROWSERSYNC_HOST_PORT}:3000"
@@ -252,6 +249,7 @@ services:
           - INSTALL_IMAGE_OPTIMIZERS=${PHP_FPM_INSTALL_IMAGE_OPTIMIZERS}
           - INSTALL_IMAGEMAGICK=${PHP_FPM_INSTALL_IMAGEMAGICK}
           - INSTALL_CALENDAR=${PHP_FPM_INSTALL_CALENDAR}
+          - INSTALL_XLSWRITER=${PHP_FPM_INSTALL_XLSWRITER}
           - INSTALL_FAKETIME=${PHP_FPM_INSTALL_FAKETIME}
           - INSTALL_IONCUBE=${PHP_FPM_INSTALL_IONCUBE}
           - INSTALL_APCU=${PHP_FPM_INSTALL_APCU}
@@ -297,10 +295,6 @@ services:
         - "9000"
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
-        - "crm-backend.local:${HOST_IP}"
-        - "crm-notify.local:${HOST_IP}"
-        - "crm.local:${HOST_IP}"
-        - "widget.local:${HOST_IP}"
       environment:
         - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
         - DOCKER_HOST=tcp://docker-in-docker:2376
@@ -336,6 +330,7 @@ services:
           - INSTALL_OCI8=${PHP_WORKER_INSTALL_OCI8}
           - INSTALL_MSSQL=${PHP_WORKER_INSTALL_MSSQL}
           - INSTALL_PHALCON=${PHP_WORKER_INSTALL_PHALCON}
+          - INSTALL_XLSWRITER=${PHP_WORKER_INSTALL_XLSWRITER}
           - INSTALL_SOAP=${PHP_WORKER_INSTALL_SOAP}
           - INSTALL_ZIP_ARCHIVE=${PHP_WORKER_INSTALL_ZIP_ARCHIVE}
           - INSTALL_MYSQL_CLIENT=${PHP_WORKER_INSTALL_MYSQL_CLIENT}
@@ -361,10 +356,6 @@ services:
         - workspace
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
-        - "crm-backend.local:${HOST_IP}"
-        - "crm-notify.local:${HOST_IP}"
-        - "crm.local:${HOST_IP}"
-        - "widget.local:${HOST_IP}"
       networks:
         - backend
       links:
@@ -427,11 +418,6 @@ services:
         - "${NGINX_HOST_HTTP_PORT}:80"
         - "${NGINX_HOST_HTTPS_PORT}:443"
         - "${VARNISH_BACKEND_PORT}:81"
-      extra_hosts:
-        - "crm-backend.local:${HOST_IP}"
-        - "crm-notify.local:${HOST_IP}"
-        - "crm.local:${HOST_IP}"
-        - "widget.local:${HOST_IP}"
       depends_on:
         - php-fpm
       networks:
@@ -640,7 +626,11 @@ services:
 
 ### PostgreSQL PostGis ###################################
     postgres-postgis:
-      build: ./postgres-postgis
+      build:
+        context: ./postgres-postgis
+        args:
+          - POSTGIS_VERSION=${POSTGIS_VERSION}   
+          - INSTALL_PGSQL_HTTP_FOR_POSTGIS13=${POSTGIS_INSTALL_PGSQL_HTTP_FOR_POSTGIS13}
       volumes:
         - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
       ports:
@@ -680,12 +670,12 @@ services:
       build: ./mongo
       ports:
         - "${MONGODB_PORT}:27017"
-      volumes:
-        - ${DATA_PATH_HOST}/mongo:/data/db
-        - ${DATA_PATH_HOST}/mongo_config:/data/configdb
       environment:
         - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
         - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      volumes:
+        - ${DATA_PATH_HOST}/mongo:/data/db
+        - ${DATA_PATH_HOST}/mongo_config:/data/configdb
       networks:
         - backend
 
@@ -1029,7 +1019,7 @@ services:
         - cluster.name=laradock-cluster
         - node.name=laradock-node
         - bootstrap.memory_lock=false
-        - "ES_JAVA_OPTS=-Xms2048m -Xmx2048m"
+        - "ES_JAVA_OPTS=-Xms512m -Xmx2048m"
         - cluster.initial_master_nodes=laradock-node
       ulimits:
         memlock:
@@ -1271,8 +1261,6 @@ services:
       networks:
         - frontend
         - backend
-      extra_hosts:
-        - "crm-backend.local:192.168.0.109"
 
 ### Solr ################################################
     solr:
@@ -1544,11 +1532,6 @@ services:
         - 2375
       networks:
         - backend
-      extra_hosts:
-        - "crm-backend.local:${HOST_IP}"
-        - "crm-notify.local:${HOST_IP}"
-        - "crm.local:${HOST_IP}"
-        - "widget.local:${HOST_IP}"
 
 ### NetData ################################################
     netdata:

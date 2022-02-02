@@ -1,35 +1,19 @@
 {
-    "authHost": "http://crm-backend.local",
-    "authEndpoint": "/broadcasting/auth",
-    "clients": [],
-    "database": "redis",
-    "databaseConfig": {
-        "redis": {
-            "port": "6379",
-            "host": "redis",
-            "db": 8
-        },
-        "sqlite": {
-            "databasePath": "/database/laravel-echo-server.sqlite"
-        }
-    },
-    "devMode": true,
-    "host": "0.0.0.0",
-    "port": "6001",
-    "protocol": "http",
-    "socketio": {},
-    "sslCertPath": "",
-    "sslKeyPath": "",
-    "sslCertChainPath": "",
-    "sslPassphrase": "",
-    "subscribers": {
-        "http": true,
-        "redis": true
-    },
-    "apiOriginAllow": {
-        "allowCors": true,
-        "allowOrigin": "*",
-        "allowMethods": "GET, POST",
-        "allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
-    }
+	"authHost": "localhost",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {
+			"port": "6379",
+			"host": "redis"
+		}
+	},
+	"devMode": true,
+	"host": null,
+	"port": "6001",
+	"protocol": "http",
+	"socketio": {},
+	"sslCertPath": "",
+	"sslKeyPath": ""
 }
