@@ -4,8 +4,8 @@ set vc=%2
 set version=%version:"=%
 set vc=%vc:"=%
 
-set xdebugVersion=3.1.2
-set redisVersion=5.3.6
+set xdebugVersion=3.1.3
+set redisVersion=5.3.7
 set yamlVersion=2.2.2
 
 set tmp=%mainPath%\data\tmp
