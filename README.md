@@ -1,6 +1,6 @@
 # Laradock Environment Helper
 
-> Abandoned! See [`andrey-helldar/docker-environment`](https://github.com/andrey-helldar/docker-environment) instead.
+> Abandoned! See [`andrey-helldar/docker-environment`](https://github.com/andrey-helldar/docker-environment) and [`andrey-helldar/windows-php`](https://github.com/andrey-helldar/windows-php) instead.
 
 <img src="https://preview.dragon-code.pro/andrey-helldar/laradock-environment.svg?brand=docker" alt="Laradock Environment"/> 
 
