@@ -1,5 +1,7 @@
 # Laradock Environment Helper
 
+> Abandoned! See [`andrey-helldar/docker-environment`](https://github.com/andrey-helldar/docker-environment) instead.
+
 <img src="https://preview.dragon-code.pro/andrey-helldar/laradock-environment.svg?brand=docker" alt="Laradock Environment"/> 
 
 ## Directory structure
